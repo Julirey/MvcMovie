@@ -20,3 +20,7 @@ A simple Movie MVC app built with ASP.NET Core
 
    ```bash
    dotnet run
+
+## Accessing catalogue
+
+The movie catalogue is available at http://localhost:{PORT}/Movies

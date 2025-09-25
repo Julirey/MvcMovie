@@ -20,7 +20,7 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString)
+        public async Task<IActionResult> Index(string movieGenre, string searchString, string fromYear)
         {
             if (_context.Movie == null)
             {
@@ -42,6 +42,18 @@ namespace MvcMovie.Controllers
             if (!string.IsNullOrEmpty(movieGenre))
             {
                 movies = movies.Where(x => x.Genre == movieGenre);
+            }
+
+            if (!string.IsNullOrEmpty(fromYear))
+            {
+                if (int.TryParse(fromYear, out int year))
+                {
+                    movies = movies.Where(m => m.ReleaseDate.Year >= year);
+                }
+                else
+                {
+                    return BadRequest("The 'fromYear' parameter must be a valid integer.");
+                }
             }
 
             var movieGenreVM = new MovieGenreViewModel

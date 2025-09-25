@@ -1,0 +1,20 @@
+# Movie MVC App
+
+A simple Movie MVC app built with ASP.NET Core 
+
+## Features
+- List, create, edit, and delete movies.
+- Filter movies by genre or search by title.
+- Uses local SQL Server database.
+
+## How to Run
+1. Clone the repo:
+
+2. Restore dependencies:
+   ```bash
+   dotnet restore
+
+3. Run the app:
+   ```bash
+   dotnet run
+
